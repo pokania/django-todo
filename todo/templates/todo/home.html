@@ -4,7 +4,7 @@
     {% for activity in activities %}
         <article class="media content-section mb-2">
             <span class="mr-4" style="width: 5px; height: 40px; background-color:{% if activity.priority == 'h' %}red{% elif activity.priority == 'm' %}orange{% else %}yellow{% endif %};"></span>
-            <div class="article-title">
+            <div class="article-title media-right">
                 <p>{{ activity.activity }}<span><small class="text-muted ml-4">Date Added: {{ activity.date_created | date:"F d, Y" }}</small></span><a href="{% url 'todo-delete' activity.id %}" role="button" class="btn btn-danger">x</a></p>
             </div>
         </article>

@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
@@ -5,6 +6,7 @@ from django.views.generic import DetailView, ListView, CreateView
 from .models import Todo
 # Create your views here.
 
+@login_required
 def home(request):
     user = request.user
     activities = Todo.objects.filter(created_by=user)
